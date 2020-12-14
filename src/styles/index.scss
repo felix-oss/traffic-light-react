@@ -11,3 +11,28 @@
     import 'relative/path/to/stylesheet.scss';
 
 */
+body{
+    background-color: rgb(230, 255, 255);
+}
+.traffic-light{
+    background-color: rgb(26, 26, 26);
+    width: 250px;
+    height: 470px;
+    border-radius: 1.9em;
+}
+.light{
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background-color: grey;
+    margin: 10% auto;
+}
+.green{
+    background-color: green;
+}
+.yellow{
+    background-color: yellow;
+}
+.red{
+    background-color: red;
+}
