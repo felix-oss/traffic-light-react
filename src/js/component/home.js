@@ -14,35 +14,33 @@ export class Home extends React.Component {
 		}, 3000);
 	}
 	componentDidUpdate() {
+		const circles = document.querySelectorAll(".light");
+		let activeLight = 0;
+
 		setInterval(() => {
-			this.setState({ currentLight: "green" });
-		}, 3000);
+			changeLight();
+		}, 1000);
+
+		function changeLight() {
+			circles[activeLight].className = "light";
+			activeLight++;
+
+			if (activeLight > 2) {
+				activeLight = 0;
+			}
+
+			const currentLight = circles[activeLight];
+
+			currentLight.classList.add(currentLight.getAttribute("color"));
+		}
 	}
 	render() {
 		return (
 			<div className="text-center mt-5">
 				<div className="traffic-light d-flex justify-content-center mx-auto flex-column">
-					<div
-						className={
-							this.state.currentLight == "red"
-								? "light red"
-								: "light"
-						}
-					/>
-					<div
-						className={
-							this.state.currentLight == "yellow"
-								? "light yellow"
-								: "light"
-						}
-					/>
-					<div
-						className={
-							this.state.currentLight == "green"
-								? "light green"
-								: "light"
-						}
-					/>
+					<div className="light" color="red" />
+					<div className="light" color="yellow" />
+					<div className="light" color="green" />
 				</div>
 			</div>
 		);
